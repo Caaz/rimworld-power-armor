@@ -1,12 +1,8 @@
 using HugsLib;
 
-namespace MyMod
+namespace PAF
 {
     public class Mod : ModBase
     {
-        public override void DefsLoaded()
-        {
-            Logger.Message("Hello, World!");
-        }
     }
 }

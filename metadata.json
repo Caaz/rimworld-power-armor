@@ -1,12 +1,12 @@
 {
   "default": {
-    "name": "Mod Template",
-    "author": "ReplaceThisWithYou",
+    "name": "Power Armor Framework",
+    "author": "Caaz",
     "description": "A modding template, you should replace this with your description!",
-    "version": "1.0.0.3",
-    "packageId": "my.mod.template",
-    "namespace": "MyMod",
-    "assemblyName": "MyMod",
+    "version": "1.0.0.0",
+    "packageId": "caaz.powerarmorframework",
+    "namespace": "PAF",
+    "assemblyName": "PowerArmorFramework",
     "assemblyFolder": "1.4/Assemblies",
     "loadAfter": [
       "UnlimitedHugs.HugsLib"
@@ -32,8 +32,7 @@
     }
   },
   "dev": {
-    "name": "Mod Template DEVELOPMENT MODE",
-    "description": "Mod Template Development mode example!",
-    "packageId": "my.mod.template.dev"
+    "name": "Power Armor Framework DEVELOPMENT MODE",
+    "packageId": "caaz.powerarmorframework.dev"
   }
 }

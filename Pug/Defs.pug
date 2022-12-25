@@ -1,2 +1,109 @@
 doctype xml
 Defs
+  ThingDef(ParentName="UnfinishedBase")
+    defName PAF_Thing_UnfinishedPowerArmorFrame
+    label unfinished power armor frame
+    description An unfinished power armor.
+    statBases 
+      Flammability 0.5
+    graphicData
+      texPath Things/Item/Unfinished/UnfinishedComponent
+      graphicClass Graphic_Single
+
+  ThingDef(ParentName="ApparelBase" Name="PAF_PowerArmorFrameBase")
+    defName PAF_Thing_PoweredFrame
+    label power armor frame
+    description The power armor frame is a highly advanced piece of technology that provides a stable and powerful source of energy for a variety of uses. When worn by a colonist, it powers a layer of armor that protects the wearer from a wide range of threats, including bullets, shrapnel, and energy attacks. The power armor frame must be refueled regularly to maintain its energy levels, and it is equipped with a variety of sensors and systems to monitor its performance and alert the wearer to any potential issues. With its rugged construction and advanced capabilities, the power armor frame is an essential tool for any colonist who needs to stay safe and protected in a dangerous world.
+    techLevel Spacer
+    equippedStatOffsets
+      MoveSpeed 5
+      CarryingCapacity 50
+    comps
+      li(Class="PAF.CompProperties.PowerArmor")
+        maxCharges 10
+        ammoDef Chemfuel
+        ammoCountToRefill 1
+        baseReloadTicks 60
+        soundReload Standard_Reload
+        hotKey Misc4
+        chargeNoun power armor frame
+        displayGizmoWhileUndrafted true
+
+        poweredDef PAF_Thing_PoweredFrame
+        unpoweredDef PAF_Thing_UnpoweredFrame
+    recipeMaker
+      unfinishedThingDef PAF_Thing_UnfinishedPowerArmorFrame
+      researchPrerequisite SmokepopBelt
+      recipeUsers: li TableMachining
+      useIngredientsForColor false
+      workSpeedStat GeneralLaborSpeed
+      workSkill Crafting
+      effectWorking Smith
+      soundWorking Recipe_Smith
+      skillRequirements: Crafting 10
+      displayPriority 311
+    costList
+      ComponentIndustrial 3
+      Steel 40
+      Chemfuel 40
+    graphicData
+      texPath Things/Pawn/Humanlike/Apparel/SmokepopPack/SmokepopPack
+      graphicClass Graphic_Single
+      drawSize 0.75
+    tickerType Normal
+    statBases
+      EquipDelay 3
+      Mass 20
+      WorkToMake 1200
+      Flammability 0.5
+    thingCategories: li ApparelUtility
+    generateAllowChance 0.15
+    apparel
+      wornGraphicPath Things/Pawn/Humanlike/Apparel/SmokepopPack/SmokepopPack
+      wornGraphicData
+        renderUtilityAsPack true
+        north: offset (0,-0.15)
+        east
+          offset (-.35,-0.05)
+          thin: offset (0.05,0)
+          hulk: offset (-0.1,0)
+          fat: offset (-0.15,0)
+        west
+          offset (.35,-0.05)
+          thin: offset (-0.05,0)
+          hulk: offset (0.1,0)
+          fat: offset (0.15,0)
+        male: scale (0.75,0.75)
+        female: scale (0.75,0.75)
+        thin: scale (0.7,0.7)
+        hulk: scale (0.9,0.9)
+        fat: scale (0.9,0.9)
+      countsAsClothingForNudity false
+      careIfWornByCorpse false
+      careIfDamaged false
+      wearPerDay 2
+      bodyPartGroups: li Waist
+      layers: li Belt
+    colorGenerator(Class="ColorGenerator_Options")
+      options
+        li
+          weight 10
+          only (0.33,0.33,0.33,1)
+        li
+          weight 10
+          only (0.6,0.4,0.4,1)
+        li
+          weight 10
+          only (0.6,0.6,0.4,1)
+        li
+          weight 6
+          min (0.3,0.3,0.3,1)
+          max (0.5,0.5,0.5,1)
+    allowedArchonexusCount 1
+    tradeTags
+      li Clothing
+      li Armor
+  ThingDef(ParentName="PAF_PowerArmorFrameBase")
+    defName PAF_Thing_UnpoweredFrame
+    label unpowered power armor frame
+    equippedStatOffsets(Inherit="false")/
